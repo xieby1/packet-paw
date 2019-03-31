@@ -27,15 +27,22 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    pawthread.cpp
+    pawthread.cpp \
+    filterdialog.cpp \
+    statisticsdialog.cpp
 
 HEADERS += \
         mainwindow.h \
     packetheaders.h \
-    pawthread.h
+    pawthread.h \
+    filterdialog.h \
+    statisticsdialog.h \
+    statisticsstruc.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    filterdialog.ui \
+    statisticsdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

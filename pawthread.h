@@ -16,7 +16,8 @@ public:
     char *dev;			/* The device to sniff on */
     char errbuf[PCAP_ERRBUF_SIZE];	/* Error string */
     struct bpf_program fp;		/* The compiled filter */
-    char* filter_exp;	/* The filter expression */
+#define FILTER_EXP_LEN 100
+    char filter_exp[FILTER_EXP_LEN] = "";	/* The filter expression */
     bpf_u_int32 mask;		/* Our netmask */
     bpf_u_int32 net;		/* Our IP */
     struct pcap_pkthdr header;	/* The header that pcap gives us */

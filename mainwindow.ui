@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>796</width>
+    <height>597</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,13 +31,6 @@
          </property>
          <property name="maximum">
           <number>200</number>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="grabPackets">
-         <property name="text">
-          <string>Grab Packets</string>
          </property>
         </widget>
        </item>
@@ -79,7 +72,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>796</width>
      <height>23</height>
     </rect>
    </property>
@@ -91,8 +84,44 @@ p, li { white-space: pre-wrap; }
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionStart"/>
+   <addaction name="actionFilter"/>
+   <addaction name="actionStatistics"/>
+   <addaction name="actionClear"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionFilter">
+   <property name="text">
+    <string>Filter</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit the BPF filter in PCAP</string>
+   </property>
+  </action>
+  <action name="actionClear">
+   <property name="text">
+    <string>Clear</string>
+   </property>
+   <property name="toolTip">
+    <string>Clear all recieved packets</string>
+   </property>
+  </action>
+  <action name="actionStart">
+   <property name="text">
+    <string>Start</string>
+   </property>
+   <property name="toolTip">
+    <string>Start to sniff</string>
+   </property>
+  </action>
+  <action name="actionStatistics">
+   <property name="text">
+    <string>Statistics</string>
+   </property>
+   <property name="toolTip">
+    <string>Statistics of recieved packets.</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
@@ -100,24 +129,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>packetRaw</tabstop>
  </tabstops>
  <resources/>
- <connections>
-  <connection>
-   <sender>grabPackets</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>grabPackets()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>664</x>
-     <y>80</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>793</x>
-     <y>58</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>grabPackets()</slot>
  </slots>

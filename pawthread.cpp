@@ -35,7 +35,6 @@ void pawThread::init(int packet_count)
 //    headerArray = new pcap_pkthdr*[packet_count];
     packetArray = new u_char*[packet_count];
     lengthArray = new int[packet_count];
-
 }
 
 void pawThread::got_packet(u_char *args, const pcap_pkthdr *header, const u_char *packet)
@@ -58,8 +57,6 @@ void pawThread::got_packet(u_char *args, const pcap_pkthdr *header, const u_char
 
 void pawThread::run()
 {
-    filter_exp = "tcp"; // and not host 124.16.112.142
-
     /* Find the properties for the device */
     if (pcap_lookupnet(dev, &net, &mask, errbuf) == -1) {
         fprintf(stderr, "Couldn't get netmask for device %s: %s\n", dev, errbuf);
