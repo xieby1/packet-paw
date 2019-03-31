@@ -34,6 +34,7 @@ void MainWindow::showCapturedPackets(int from, int to)
         ethernetHandler(packet);
     }
     ui->statusBar->showMessage(QObject::tr("Packet paw is sniffing ... finished %1/%2").arg(to).arg(pawthread->packetsCount), 1000);
+    ui->progressBar->setValue(to*100/pawthread->packetsCount);
     if(to==pawthread->packetsCount)
     {
         ui->actionStart->setEnabled(true);
@@ -178,7 +179,7 @@ void MainWindow::tcpHandler(u_char *payload, QTreeWidgetItem* parent, unsigned i
 
 void MainWindow::httpHandler(u_char *payload, QTreeWidgetItem *parent, unsigned int fullLength)
 {
-    QTreeWidgetItem* tcpItem = new QTreeWidgetItem(parent, QStringList({"tcp", QString((QChar*)payload, fullLength)}));
+    QTreeWidgetItem* tcpItem = new QTreeWidgetItem(parent, QStringList({"HTTP", QString((QChar*)payload, fullLength)}));
 }
 
 void MainWindow::initStatistic()
